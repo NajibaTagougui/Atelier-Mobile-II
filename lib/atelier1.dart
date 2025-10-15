@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class ProfilePageM3 extends StatelessWidget {
   const ProfilePageM3({super.key});
 
@@ -7,7 +8,7 @@ class ProfilePageM3 extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
-        color: colorScheme.surfaceVariant,
+        color: colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -21,12 +22,7 @@ class ProfilePageM3 extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4),
-          Text(
-            label,
-            style: TextStyle(
-              color: colorScheme.onSurfaceVariant,
-            ),
-          ),
+          Text(label, style: TextStyle(color: colorScheme.onSurfaceVariant)),
         ],
       ),
     );
@@ -58,17 +54,12 @@ class ProfilePageM3 extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     gradient: LinearGradient(
-                      colors: [
-                        colorScheme.primary,
-                        colorScheme.secondary,
-                      ],
+                      colors: [colorScheme.primary, colorScheme.secondary],
                     ),
                   ),
                   child: CircleAvatar(
                     radius: 56,
-                    backgroundImage: const AssetImage(
-                      'images/person1.png'
-                    ),
+                    backgroundImage: const AssetImage('images/person1.png'),
                   ),
                 ),
                 Container(
@@ -76,10 +67,7 @@ class ProfilePageM3 extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: colorScheme.primary,
                     shape: BoxShape.circle,
-                    border: Border.all(
-                      color: colorScheme.surface,
-                      width: 2,
-                    ),
+                    border: Border.all(color: colorScheme.surface, width: 2),
                   ),
                   child: Icon(
                     Icons.check,
@@ -90,7 +78,7 @@ class ProfilePageM3 extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
-            
+
             // Étape 2: Nom et titre
             Text(
               'Mohamed Tounsi',
@@ -107,7 +95,7 @@ class ProfilePageM3 extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 32),
-            
+
             // Étape 3: Statistiques
             Wrap(
               spacing: 12,
@@ -119,11 +107,11 @@ class ProfilePageM3 extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 32),
-            
+
             // Étape 4: Section À propos
             Card(
               elevation: 0,
-              color: colorScheme.surfaceVariant,
+              color: colorScheme.surfaceContainerHighest,
               child: Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
@@ -131,10 +119,7 @@ class ProfilePageM3 extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Icon(
-                          Icons.info_outline,
-                          color: colorScheme.primary,
-                        ),
+                        Icon(Icons.info_outline, color: colorScheme.primary),
                         const SizedBox(width: 12),
                         Text(
                           'À propos',
@@ -160,7 +145,7 @@ class ProfilePageM3 extends StatelessWidget {
           ],
         ),
       ),
-      
+
       // Étape 5: Bouton flottant
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {

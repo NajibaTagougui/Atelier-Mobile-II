@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'atelier1.dart';
 import 'atelier2.dart';
+import 'atelier3.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Material 3',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      home: const ProfilePageM3(), // Nous commençons par l'atelier1
+      home: const ProductDetailPage(
+        product: Product('iPhone 15', 999, 'https://picsum.photos/201/300'),
+      ), // Nous commençons par l'atelier1
     );
   }
 }
