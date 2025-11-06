@@ -12,11 +12,12 @@ class ProductDetailPage extends StatefulWidget {
 
 class _ProductDetailPageState extends State<ProductDetailPage> {
   final ValueNotifier<int> _quantity = ValueNotifier<int>(1);
-
-  // TODO Étape 1: SliverAppBar avec image
-  // TODO Étape 2: CustomScrollView avec SliverList
-  // TODO Étape 3: Sélecteur de quantité
-  // TODO Étape 4: Bouton fixe en bas
+  //pour bouton favoris
+  bool _isFavorite = false;
+  // Méthode pour obtenir le chemin de l'image locale
+  String _getLocalImagePath(String imageName) {
+    return 'images/$imageName';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +28,29 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         slivers: [
           // Étape 1: SliverAppBar
           SliverAppBar(
-            expandedHeight: 300,
+            expandedHeight: 200,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
-                widget.product.image,
-                fit: BoxFit.cover,
-              ),
+              background:
+                  //Image.network(
+                  Image.asset(
+                    _getLocalImagePath(widget.product.image),
+                    //widget.product.image,
+                    fit: BoxFit.cover,
+                  ),
             ),
             pinned: true,
             actions: [
               IconButton(
-                icon: const Icon(Icons.favorite_border),
-                onPressed: () {},
+                //icon: const Icon(Icons.favorite_border),
+                icon: Icon(
+                  _isFavorite ? Icons.favorite : Icons.favorite_border,
+                  color: _isFavorite ? Colors.red : colorScheme.onSurface,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _isFavorite = !_isFavorite;
+                  });
+                },
               ),
             ],
           ),
